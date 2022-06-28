@@ -21,12 +21,15 @@ function Sessions(props){
         }
     }
     compareDate();
-    
+
+    // {isToday=false ? <div style={{display: "none"}} />
+    // :
+
 //updating logic to check if session is today, but iterates through map for each component
     return (
         <div>
-        {isToday=false ? <div style={{display: "none"}} />
-        :
+ 
+        {props.status==="completed" &&
     
                <div className="routines">
                     <div className="top">
@@ -35,7 +38,7 @@ function Sessions(props){
                     </div>
                     <div className="bottom">
                         <h4 className="dateRoutine"> {props.date} @ {props.time}</h4>
-                        {props.status==="completed" && <span role="img" aria-label="check">✅</span>}
+                        {props.status==="completed" && <span className="completed" role="img" aria-label="check">✅</span>}
                         
                         
                          </div>
