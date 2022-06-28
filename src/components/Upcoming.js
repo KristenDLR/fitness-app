@@ -14,7 +14,13 @@ const currentDate = currentMonth + " " +  currentDay;
 function Upcoming() {
     return (
         <>
-        <h1>Upcoming</h1>
+        <h1 className="today">Today</h1>
+        <div className="starting">
+            <h2 style={{fontSize: "14px"}}> Next Session starting in:</h2>
+            <h1 className="time">04:24:01</h1>
+            <h2 style={{fontSize: "20px"}}>Vinyasa Yoga - 45 mins</h2>
+            <button>Start Now</button>
+        </div>
         </>
     )
 }
