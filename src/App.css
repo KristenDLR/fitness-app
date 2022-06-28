@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Montserrat:wght@600;700&display=swap');
 
-/* body{
-  background: #E5E5E5;
-} */
 
 .App{
 margin:40px;
@@ -25,6 +22,7 @@ margin:40px;
     margin-left:15px;
 }
 
+/*routines*/
 .routines{
   mix-blend-mode: normal;
   border: 1.5px solid #BFBFBF;
@@ -81,6 +79,7 @@ margin:40px;
 .completed{
   margin: 0px 0px 11px 50px;
 }
+
 
 /*Today Upcoming*/
 .today{

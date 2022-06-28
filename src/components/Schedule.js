@@ -17,8 +17,8 @@ function Schedule(props){
                     <div className="bottom">
                         <h4 className="dateRoutine"> {props.date} @ {props.time}</h4>
 
-                         </div>
                     </div>
+              </div>
                
               }
     </div>

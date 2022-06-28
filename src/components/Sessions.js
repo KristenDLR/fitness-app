@@ -3,29 +3,32 @@ import { React, useState } from "react";
 
 
 function Sessions(props){
-    let [isToday, setIsToday ] = useState(false);
+    // let [isToday, setIsToday ] = useState(false);
 
-    //Figma organizes data as left and right may restructure
+    
+        /*----------------------------------------------------*/
+    //!Icebox: Need to complete logic to sort sessions by date.
+    // updating logic to check if session is today, but iterates through map for each component
+    // const currentMonth = new Date().toLocaleString("en-US", { month: "long" })
+    // const currentDay = new Date().toLocaleString("en-US", { day : '2-digit'})
+    // console.log(currentDay)
 
-    const currentMonth = new Date().toLocaleString("en-US", { month: "long" })
-    const currentDay = new Date().toLocaleString("en-US", { day : '2-digit'})
-   console.log(currentDay)
-
-    function compareDate(){
-        if(props.date.split(' ')[0] === currentMonth && props.date.split(" ")[1] === currentDay){
-            console.log("match")
-            return(
+    // function compareDate(){
+    //     if(props.date.split(' ')[0] === currentMonth && props.date.split(" ")[1] === currentDay){
+    //         console.log("match")
+    //         return(
      
-            setIsToday = true
-            )
-        }
-    }
-    compareDate();
+    //         setIsToday = true
+    //         )
+    //     }
+    // }
+    // compareDate();
 
     // {isToday=false ? <div style={{display: "none"}} />
     // :
+    /*----------------------------------------------------*/
 
-//updating logic to check if session is today, but iterates through map for each component
+    //Figma organizes data as left and right, restructured
     return (
         <div>
  
@@ -41,8 +44,8 @@ function Sessions(props){
                         {props.status==="completed" && <span className="completed" role="img" aria-label="check">✅</span>}
                         
                         
-                         </div>
                     </div>
+              </div>
                
               }
     </div>
