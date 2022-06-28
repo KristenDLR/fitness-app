@@ -11,8 +11,6 @@ import Schedule from './components/Schedule'
 function App() {
   console.log(db.routines);
 
-  
-
   const session = db.sessions;
 
   const sessionsCard = session.map(item => {
