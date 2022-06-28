@@ -1,5 +1,5 @@
 import React from 'react';
-import Session from "./components/Sessions";
+import Sessions from "./components/Sessions";
 import './App.css';
 import db from "./db";
 
@@ -15,8 +15,10 @@ function App() {
   const session = db.sessions;
 
   const sessionsCard = session.map(item => {
+    console.log(item.date.split(' ')[0])
+
       return(
-        <Session
+        <Sessions
         title={item.name}
         duration={item.duration}
         time={item.time}
