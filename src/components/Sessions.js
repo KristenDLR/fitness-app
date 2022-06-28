@@ -21,7 +21,8 @@ function Sessions(props){
         }
     }
     compareDate();
-
+    
+//updating logic to check if session is today, but iterates through map for each component
     return (
         <div>
         {isToday=false ? <div style={{display: "none"}} />
