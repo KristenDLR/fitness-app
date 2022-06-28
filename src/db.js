@@ -38,7 +38,7 @@ module.exports = {
       "user_id": 1,
       "time": "10am",
       "duration":"45min",
-      "date":"June 3",
+      "date":"June 27",
       "name": "Getting wet",
       "routine_id": 1,
       "status":"completed"
