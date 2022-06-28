@@ -1,26 +1,29 @@
-import React from "react";
-
-function Schedule (){
+import { React, useState } from "react";
 
 
-   
 
-    return(
-    <div className="schedItem">
-      
-             <div className="leftContent">
-                <h3 className="title">Indoor Run</h3>
-                <h4 className="date">June 3 @ 7:30pm</h4>
-             </div>
-             <div className="rightContent">
-                <h3 className="duration">30 mins</h3>
-                <h4 className="taken">∫</h4>
-             </div>
-      
+function Schedule(props){
+
+    return (
+        <div>
+ 
+        {props.status==="upcoming" &&
     
+               <div className="routines">
+                    <div className="top">
+                        <h3 className="titleRoutine">{props.title}</h3>
+                        <h3 className="durationRoutine">{props.duration}</h3>
+                    </div>
+                    <div className="bottom">
+                        <h4 className="dateRoutine"> {props.date} @ {props.time}</h4>
+
+                         </div>
+                    </div>
+               
+              }
     </div>
-        
+    
     )
 }
 
-export default Schedule;
+export default Schedule
