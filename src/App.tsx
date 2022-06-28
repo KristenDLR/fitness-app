@@ -30,11 +30,12 @@ function App() {
 
   return (
     <div className="App">
-     <div className="header">
-      Sessions
-     </div>
-       {sessionsCard}
-
+       <div className="header">
+           Sessions
+         </div>
+         <div className="frame">
+            {sessionsCard}
+          </div>
     </div>
   );
 }
