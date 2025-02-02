@@ -1,12 +1,9 @@
-# fitness-app
-
 ## New Feature Request
 
 Users have requested a feature that allows them to schedule a “session” which describes a future date/time that they want to complete a given routine. `The PM has asked you to start work on the view that will show the user’s sessions.`
 
 They want a way for a user to see their already schedule
 It must include a record of whether the session has been completed or not and some sort of easy to identify means of recognizing completed sessions.
-
 Using the boilerplate, create a react app that will load a single page that renders the sessions from the provided graphQL server. Look in the readme for instructions on how to start the graphQL server.
 
 - Some of the data provided in the mock endpoint is incomplete. Feel free to add relevant fields to the schema.
@@ -15,68 +12,129 @@ Using the boilerplate, create a react app that will load a single page that rend
 
 
 ______________
-# Completed:
-* User can see already scheduled and completed sessions.
-* Hardcoded Upcoming element to display same text and button format as Figma
-* User can see map of upcoming events
-* Explored GraphQL queries in playground.
-* Passes props to map through db.js and render elements
+
+To Do:
+* set up the project
+* Must include: Record of whether session has been completed or not
+* single page that renders the sessions from the provided graphQL server
 
 
-# Assumtions/Finds:
-* Date, Time, Duration are missing from query, need to update schema
+?? Do I need to set up Global State Object/Store
+For the scope of this assessment, assume workout sessions have the following values:
 
-# Ice-box:
-* User logs in and sees all associated sessions.
-* Onclick for upcomiing button, so user can add to their schedule.
-* Need to complete logic to sort sessions by date.
-* Capitalize first letter of session name
-* Use graphQL mutations to update data instead of editing db.json
+- User ID
+- Session title (defaults to name of the routine)
+- The routine for the session (none is a valid selection)
+- Timestamp to start the routine
+- Session duration (defaults to length of selected routine, but overridable by user)
+- Frequency - 1 time, specific cadence (daily, weekly, monthly, or set weekdays)
+- Reminders - The session needs to have the ability to add an arbitrary number of reminders. These can be set at absolute times (fire reminder on the 18th @ 5:00 PM), or relative (send reminder 1 hour before session).
+- Notes - arbitrary text the user can add to the session before, during, or after the actual event
+
+?? What would I need to do to successfully run GraphQL?
+- MVC architecture helps
+- Actions, that will define the type of event to update state
+    --Schedule a session, describes future date/time
+    --View schedule, shows whether sessions completed or not
+- Reducers, the actual functionality to update state
+
+- Schema
+    -- explore graphQL
+    -- Feel free to add relevant fields to the schema---- need to add date time.
 
 
+?? State
+- This is a single page App component
+- Session component keeps track of the available sessions
+- Schedule component displays the selected sessions and wether completed
+
+!! Openedd GraphQL Query
+Able to query the user status of completed sessions and routines
+ query{
+		User(id:1){
+    name,
+    email, 
+    Sessions{
+      user_id,
+      name,
+      routine_id,
+      status
+    }
+  }
+}
+
+JSON response:
+{
+  "data": {
+    "User": {
+      "name": "Bilbo Baggins",
+      "email": "shouldastayedhome@notreal.com",
+      "Sessions": [
+        {
+          "user_id": "1",
+          "name": "Getting wet",
+          "routine_id": "1",
+          "status": "completed"
+        },
+        {
+          "user_id": "1",
+          "name": "meeting trolls",
+          "routine_id": "1",
+          "status": "upcoming"
+        },
+        {
+          "user_id": "1",
+          "name": "climbing mountains",
+          "routine_id": "1",
+          "status": "upcoming"
+        },
+        {
+          "user_id": "1",
+          "name": "finding a ring",
+          "routine_id": "1",
+          "status": "upcoming"
+        },
+        {
+          "user_id": "1",
+          "name": "playing riddle master",
+          "routine_id": "2",
+          "status": "upcoming"
+        }
+      ]
+    }
+  }
+}
+
+* user with id 2 nothing complete or upcoming
+_____
+   query{
+	Routine(id:2){
+      title,
+      description,
+ 	    media_id,
+    category,
+    public,
+    status,
+    votes,
+
+    }
+
+  }
+
+  JSON response: 
+  {
+  "data": {
+    "Routine": {
+      "title": "Taunting Dragons",
+      "description": "This seems like a smart decision",
+      "media_id": "1",
+      "category": null,
+      "public": true,
+      "status": "community",
+      "votes": 13
+    }
+  }
+}
 
 
-![Image of Front-end](./public/images/fitness-app.png)
-
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start:server`
-
-Runs the graphQL local server.\
-Open [http://localhost:1337](http://localhost:1337) to view the playground in the browser.
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  * ???Can not find date and time in db.js or GrpahQL
